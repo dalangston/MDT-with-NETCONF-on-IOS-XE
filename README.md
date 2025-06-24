@@ -82,12 +82,10 @@ docker compose up --build
 - If making changes other than just the readme, do them in a different branch of this project.
 
 # To Do
-1. Update the dashboard to show the relationship between an interface's operational state and administrative state
-2. Add functionality to dynamically update devices to subscribe to
-3. Add dashboard/panels in Grafana to show how relationships between data can result in a different display
-4. Add dashboard for overview and one for details
-5. Add panel for all SD-WAN BFD session statistics for a router
-6. Be able to click on a stat to go into details (this might take a while)
-7. Change Prometheus to use the Prometheus container instead of installing it on an Ubuntu container?
-8. Figure out why there's the `Error on ingesting out-of-order samples` error for the Prometheus container
-9. Pin versions of Python libraries and GitHub repositories in a sustainable manner
+1. Add functionality to dynamically update devices to subscribe to
+2. Add panel for all SD-WAN BFD session statistics for a network device (if possible)
+3. Be able to click on a stat to go into details (this might take a while)
+4. Change Prometheus to use the Prometheus container instead of installing it on an Ubuntu container?
+5. Figure out why there's the `Error on ingesting out-of-order samples` error for the Prometheus container
+6. Pin versions of Python libraries and GitHub repositories in a sustainable manner
+7. Add a module to simulate data when no network device is available for testing
