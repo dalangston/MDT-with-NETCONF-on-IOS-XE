@@ -2,8 +2,7 @@ version: "3.9"
 services:
     telegraf:
         build:
-            context: .
-            dockerfile: Dockerfile-telegraf
+            context: ./telegraf/
         container_name: ${CONTAINER_PREFIX}_telegraf
         ports:
             - "9273:9273"
@@ -11,8 +10,7 @@ services:
             - .env
     prometheus:
         build:
-            context: .
-            dockerfile: Dockerfile-prometheus
+            context: ./prometheus/
         container_name: ${CONTAINER_PREFIX}_prometheus
         ports:
             - "9090:9090"
