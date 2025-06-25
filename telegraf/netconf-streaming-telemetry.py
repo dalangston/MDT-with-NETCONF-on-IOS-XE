@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 import os
 import yaml
 import sys
-sys.path.append('ncclient')
 from ncclient import manager # type: ignore
 import time
 import logging
