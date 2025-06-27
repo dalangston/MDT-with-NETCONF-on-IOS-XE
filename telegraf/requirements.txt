@@ -1,0 +1,9 @@
+xmltodict
+dotenv
+pyyaml
+typing
+six
+python-dateutil
+lxml
+paramiko
+ncclient @ git+https://github.com/CiscoDevNet/ncclient

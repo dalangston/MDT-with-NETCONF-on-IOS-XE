@@ -1,9 +1,10 @@
 FROM ubuntu:24.04
-RUN apt-get update && apt-get install -y && \
-    apt-get install vim -y
-RUN apt-get install wget -y
-RUN apt-get install -y python3 python3-pip
-RUN apt-get install -y git
+RUN apt-get update && apt-get install -y \
+    vim \
+    wget \
+    python3 python3-pip \
+    git
+
 RUN mkdir /opt/monitoring/
 
 # install telegraf
@@ -12,13 +13,13 @@ RUN dpkg -i telegraf_1.34.1-1_amd64.deb
 RUN mkdir /opt/monitoring/telegraf/
 
 # Clone ncclient fork from GitHub from CiscoDevNet
-RUN git clone https://github.com/CiscoDevNet/ncclient /opt/monitoring/telegraf/ncclient
+#RUN git clone https://github.com/CiscoDevNet/ncclient /opt/monitoring/telegraf/ncclient
 
 # Install required packages for Python scripts
-RUN pip3 install xmltodict dotenv pyyaml typing six python-dateutil lxml paramiko --break-system-packages
-
+COPY requirements.txt .
+RUN pip3 install -r requirements.txt  --break-system-packages
 # copy NETCONF scripts/files and telegraf config file into the telegraf monitoring folder
-COPY ./telegraf/* /opt/monitoring/telegraf/
+COPY ./* /opt/monitoring/telegraf/
 RUN chmod +x /opt/monitoring/telegraf/*
 
 WORKDIR /opt/monitoring/telegraf
